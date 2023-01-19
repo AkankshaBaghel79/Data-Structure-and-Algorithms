@@ -1,3 +1,5 @@
+//The array contain elements from 1 - (n-1)
+//find the duplicate element in the list
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -40,3 +42,7 @@ int main()
 
     return 0;
 }
+
+// output:
+// 6
+// 1 2 3 4 4 5 -->> 4

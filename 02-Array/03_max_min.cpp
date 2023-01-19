@@ -26,3 +26,9 @@ int main()
     cout<<"Minimum : "<<minNO<<endl;
     return 0;
 }
+
+// output:
+// Enter the num : 5
+// Enter the elements : 1 2 3 4 5
+// Maximum : 5
+// Minimum : 1

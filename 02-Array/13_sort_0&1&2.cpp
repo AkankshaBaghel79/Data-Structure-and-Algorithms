@@ -20,20 +20,19 @@ void sortArray(vector<int> &v, int n)
     {
         if(v[i] == 0)
         {
-            swap(v[i], v[j]);
+            swap(v[i], v[j]); // here i maintaing the area for 1.
             i++;
             j++;
         }
-        else if(v[i] == 1)
+        else if(v[i] == 1) // here j maintaining the area for 0.
         {
             i++;
         }
         else{
-            swap(v[i], v[k]);
+            swap(v[i], v[k]); // here k maintaing the area for k.
             k--;
         }
     }
-
 }
 
 

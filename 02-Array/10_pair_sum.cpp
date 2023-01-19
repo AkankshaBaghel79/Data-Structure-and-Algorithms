@@ -1,7 +1,11 @@
+//In this problem an array is given of length n and sum is given sum, find the pairs in the array which when added gives the sum.
+
 #include<bits/stdc++.h>
 using namespace std;
 
 #define endl "\n";
+
+// Brute force approach ===> O(N)^2
 
 vector<vector<int>> pairSum(vector<int> &arr, int s){
     
@@ -9,7 +13,6 @@ vector<vector<int>> pairSum(vector<int> &arr, int s){
     
     for(int i=0;i<arr.size();i++)
     {
-        int value = arr[i];
         for(int j=i+1;j<arr.size();j++)
         {
             if(arr[i] + arr[j] == s)
@@ -23,6 +26,29 @@ vector<vector<int>> pairSum(vector<int> &arr, int s){
     }
     
     sort(ans.begin(),ans.end());
+    return ans;
+}
+
+//Optimized approach --> O(N) + O(Nlogn) + O(logn) ==>> O(NlogN)
+
+vector<vector<int>> pairSumBinary(vector<int> &arr, int s)
+{
+    vector<vector<int>> ans;
+    sort(arr.begin(), arr.end());
+
+    for(int i = 0;i<arr.size();i++)
+    {
+        int value = s - arr[i];
+        if(binary_search(arr.begin()+i, arr.end(), value))
+        {
+            vector<int> temp;
+            temp.push_back(min(arr[i], value));
+            temp.push_back(max(arr[i], value));
+            ans.push_back(temp);
+        }
+    }
+
+    sort(ans.begin(), ans.end());
     return ans;
 }
 
@@ -48,7 +74,7 @@ int main()
             v.push_back(x);
         }
 
-        vector<vector<int>> vec = pairSum(v,s);
+        vector<vector<int>> vec = pairSumBinary(v,s);
 
         for (int i = 0; i < vec.size(); i++) 
         {

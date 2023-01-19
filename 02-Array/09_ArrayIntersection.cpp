@@ -1,3 +1,4 @@
+//IN this problem the arrays are given in sorted orders find the intersection between them.
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -76,3 +77,15 @@ int main()
     
     return 0;
 }
+
+// input:
+// 2
+// 3 3 
+// 1 4 5
+// 3 4 5
+// 1 1
+// 3
+// 6
+// output:
+// 4 5
+// -1

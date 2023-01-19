@@ -1,3 +1,4 @@
+// Find the unique element in an array where every element appears twice execept one element.
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,3 +29,7 @@ int main()
     cout<<unique(arr,n);
     return 0;
 }
+
+// output:
+// 5
+// 1 2 1 2 5 --->> 5

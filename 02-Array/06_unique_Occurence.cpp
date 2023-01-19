@@ -36,3 +36,7 @@ int main()
     
     return 0;
 }
+
+// output:
+// 6
+// 1 1 2 1 2 3 --->> TRUE

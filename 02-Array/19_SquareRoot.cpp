@@ -3,7 +3,7 @@ using namespace std;
 
 #define endl "\n";
 
-long long int binarySearch_SquareRoot(int n)
+long long int squareRoot(int n)
 {
     int s = 0;
     int e = n;
@@ -31,12 +31,31 @@ long long int binarySearch_SquareRoot(int n)
     return ans;
 }
 
+double precise(int n, int precision, int tempsol)
+{
+    double factor = 1;
+    double ans = tempsol;
+
+    for(int i = 0;i<precision;i++)
+    {
+        factor = factor/10;
+
+        for(double j = ans; j*j < n; j = j + factor)
+        {
+            ans = j;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
     int n;
+    cout<<"Enter the number : "<<endl;
     cin>>n;
+    int tempsol = squareRoot(n);
 
-    cout<<binarySearch_SquareRoot(n);
+    cout<<"The Square Root : "<<precise(n, 3, tempsol)<<endl;
     
     return 0;
 }

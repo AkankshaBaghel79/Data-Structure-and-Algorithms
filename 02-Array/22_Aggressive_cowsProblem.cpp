@@ -50,7 +50,7 @@ int aggressiveCows(vector<int> &stalls, int k)
         mid = s + (e - s)/2;
     }
 
-    return mid;
+    return ans;
 }
 
 int main()
@@ -75,3 +75,13 @@ int main()
 
     return 0;
 }
+// input:
+// 2
+// 6 4
+// 0 3 4 7 10 9
+// 6 3
+// 0 4 3 7 10 9
+// output:
+// 3
+// 4
+

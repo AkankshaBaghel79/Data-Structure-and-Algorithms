@@ -71,7 +71,7 @@ int main()
         cin>>x;
         arr.push_back(x);
     }
-
+    
     cout<<TreeCutting(arr,n,m)<<endl;
     
     return 0;

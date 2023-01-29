@@ -40,9 +40,9 @@ int CookingNinjas(vector<int> &rank, int m)
         Maxi = max(Maxi, rank[i]);
     }
 
-    int e = (Maxi*(m*(m-1)))/2;
+    int e = 1e8;
+    
     int mid = s + (e - s)/2;
-    // cout<<mid<<endl;
 
     while(s<=e)
     {
@@ -54,7 +54,8 @@ int CookingNinjas(vector<int> &rank, int m)
         else{
             s = mid + 1;
         }
-        int mid = s + (e - s)/2;
+
+        mid = s + (e - s)/2;
     }
 
     return ans;

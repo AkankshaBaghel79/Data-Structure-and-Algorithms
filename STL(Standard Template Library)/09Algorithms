@@ -1,0 +1,32 @@
+//Built In Algorthims to increase the speed of your code.
+/*
+
+Binary Search--->
+     binary_search(v.begin(),v.end(), element)
+
+Lower Bound--->
+     lower_bound(v.begin(),v.end(), element)
+
+Upper Bound--->
+     upper_bound(v.begin(),v.end(), element)
+
+Max element --->
+      max(a,b);
+
+Min element --->
+      min(a,b);
+
+swapping of element --->
+      swap(a,b);
+
+Reversing of vector/string --->
+      reverse(v.begin(),v.end());
+
+Rotating of vector --->
+      rotate(v.begin(),v.begin() + 1, v.end())
+
+sorting --->
+      sort(v.begin(),v.end());
+
+
+*/

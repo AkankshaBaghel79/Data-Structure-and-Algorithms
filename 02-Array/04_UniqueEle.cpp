@@ -6,13 +6,38 @@ using namespace std;
 
 int unique(int arr[],int size)
 {
-    int ans = 0;
-    for(int i = 0;i<size;i++)
+    //Linear search method
+    //Time complexity : O(N);
+    // int ans = 0;
+    // for(int i = 0;i<size;i++)
+    // {
+    //     ans = ans ^ arr[i];
+    // }
+    // return ans;
+
+    //Binary Search approach
+    //Time complexity : O(logn)
+
+    int l = 0;
+    int r = size - 1;
+
+    while(l<r)
     {
-        ans = ans ^ arr[i];
+        int mid = (l+r)/2;
+        if(mid % 2 != 0)
+           mid --;
+
+        if(arr[mid] != arr[mid+1])
+        {
+            r = mid;
+        }
+        else{
+            l = mid+2;
+        }
     }
 
-    return ans;
+    return arr[l];
+  
 }
 
 int main()

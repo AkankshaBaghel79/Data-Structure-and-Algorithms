@@ -5,22 +5,27 @@ using namespace std;
 
 string removeDuplicates(string s) 
 {
-    int i = 0;
-
-    while((s.length() != 0) && (i+1 < s.length()))
+    string ans = "";
+    for(int i = 0;i<s.length();i++)
     {
-        if(s[i] == s[i+1])
+        if(ans.empty())
         {
-            s.erase(i, 2);
-            i = 0;
+            ans.push_back(s[i]);
         }
         else{
-            i++;
+            if(s[i] == ans[ans.length()-1])
+            {
+                ans.pop_back();
+            }
+            else{
+                ans.push_back(s[i]);
+            }
         }
     }
 
-    return s;
+    return ans;
 }
+
 
 int main()
 {
@@ -30,3 +35,8 @@ int main()
     
     return 0;
 }
+
+/*
+Input: s = "abbaca"
+Output: "ca"
+*/

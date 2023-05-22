@@ -1,6 +1,18 @@
-# Description
+# Chapter 6
 
-### Sieve of Eratosthenes
+## Features
+
+- Sieve of Eratosthenes
+- Segmented Sieve
+- Euclid's Algo
+- Modular Airthmetic
+- fast Exponentiation
+- Modular Exponentiation
+- Pigeon - hole principle
+- Catalan number
+- Inclusion - Exclusion principle
+
+### 1. Sieve of Eratosthenes
 
 Sieve of Eratosthenes is an algorithm for finding all the prime numbers in a segment [1:N]
 The algorithm is very simple:

@@ -45,13 +45,38 @@ int getLength(Node* head)
     return count;
 }
 
+Node* ReverseKgroups(Node* head, int k)
+{
+    //Step 1 : find the length of the linked list
+    int count = getLength(head);
+
+    Node* dummy = new Node();
+    dummy->next = head;
+
+    Node* curr = dummy, *prev = dummy, *next = dummy;
+
+    while(count >= k)
+    {
+        curr = prev->next;
+        next = curr->next;
+        for(int i = 1;i<k;i++)
+        {
+            curr->next = next->next;
+            next->next = prev->next;
+            prev->next = next;
+            next = curr->next;
+        }
+
+        prev = curr;
+        count-=k;
+
+    }
+
+    return dummy->next;
+}
+
 int main()
 {
-    /*In this line, an object of the Node class named n1 is created using automatic storage (on the stack). This means that the memory for n1 is allocated on the stack, and when the scope of the main function ends, the memory for n1 will be automatically deallocated.*/
-    // Node n1(11);
-    /*In this line, a pointer to a Node object named n2 is created. The new operator is used to allocate memory for a Node object on the heap. This memory will persist until it is explicitly deallocated using the delete operator. This is manual memory management. If you don't use delete to deallocate the memory, it will lead to a memory leak.*/
-    // Node* n2 = new Node(10);
-
     Node* n1 = new Node(10);
     Node* n2 = new Node(20);
     Node* n3 = new Node(30);
@@ -65,14 +90,12 @@ int main()
     n4->next = n5;
     n5->next = n6;
 
-
-
-    delete n1;
-    delete n2;
-    delete n3;
-    delete n4;
-    delete n5;
-    delete n6;
+    display(n1);
+    int k;
+    cin>>k;
+    cout<<"Reversing in "<<k<<" Groups: "<<endl;
+    Node* ans = ReverseKgroups(n1, k);
+    display(ans);
 
     return 0;
 }

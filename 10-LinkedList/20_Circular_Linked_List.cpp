@@ -33,10 +33,10 @@ void display(Node* n)
 //2. Length of linked list
 int getLength(Node* head)
 {
-    Node* temp = head;
-    int count = 0;
+    Node* temp = head->next;
+    int count = 1;
 
-    while(temp != NULL)
+    while(temp != head)
     {
         temp = temp->next;
         count++;
@@ -45,12 +45,37 @@ int getLength(Node* head)
     return count;
 }
 
+bool CircularLinked(Node* head)
+{
+    if(head == NULL)
+    {
+        return true;
+    }
+
+    int len = getLength(head);
+    Node* temp = head->next;
+    int count = 0;
+
+    while(temp != NULL && temp != head)
+    {
+        count ++;
+        temp = temp->next;
+        
+        if(count > len)
+        {
+            return false;
+        }
+    }
+
+    if(temp == head)
+    {
+        return true;
+    }
+    return false;
+}
+
 int main()
 {
-    /*In this line, an object of the Node class named n1 is created using automatic storage (on the stack). This means that the memory for n1 is allocated on the stack, and when the scope of the main function ends, the memory for n1 will be automatically deallocated.*/
-    // Node n1(11);
-    /*In this line, a pointer to a Node object named n2 is created. The new operator is used to allocate memory for a Node object on the heap. This memory will persist until it is explicitly deallocated using the delete operator. This is manual memory management. If you don't use delete to deallocate the memory, it will lead to a memory leak.*/
-    // Node* n2 = new Node(10);
 
     Node* n1 = new Node(10);
     Node* n2 = new Node(20);
@@ -64,7 +89,15 @@ int main()
     n3->next = n4;
     n4->next = n5;
     n5->next = n6;
+    n6->next = n3;
 
+    if(CircularLinked(n1))
+    {
+        cout<<"true"<<endl;
+    }
+    else{
+        cout<<"false"<<endl;
+    }
 
 
     delete n1;
